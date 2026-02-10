@@ -2,7 +2,7 @@ SMODS.Joker:take_ownership('joker', { order = 1, cost = 20, config = {mult = 40}
 SMODS.Joker:take_ownership('greedy_joker', { order = 2, cost = 50, config = {extra = { s_mult = 30, suit = 'Diamonds'}}})
 SMODS.Joker:take_ownership('lusty_joker', { order = 3, cost = 50, config = {extra = { s_mult = 30, suit = 'Hearts'}}})
 SMODS.Joker:take_ownership('wrathful_joker', { order = 4, cost = 50, config = {extra = { s_mult = 30, suit = 'Spades'}}})
-SMODS.Joker:take_ownership('gluttenous_joker', { order = 5, cost = 50, config = {extra = { s_mult = 30, suit = 'Club'}}})
+SMODS.Joker:take_ownership('gluttenous_joker', { order = 5, cost = 50, config = {extra = { s_mult = 30, suit = 'Clubs'}}})
 SMODS.Joker:take_ownership('jolly', { order = 6, cost = 30, config = { t_mult = 80, type = 'Pair' },})
 SMODS.Joker:take_ownership('zany', { order = 7, cost = 40, config = { t_mult = 120, type = 'Three of a Kind',}})
 SMODS.Joker:take_ownership('mad', { order = 8, cost = 40, config = { t_mult = 100, type = 'Two Pair',}})
@@ -66,7 +66,17 @@ SMODS.Joker:take_ownership(
 )
 
 SMODS.Joker:take_ownership('four_fingers', { order = 18, cost = 70, config = {}})
-SMODS.Joker:take_ownership('mime', { order = 19, cost = 50, config = { extra = 10, }})
+SMODS.Joker:take_ownership(
+    'mime', 
+    { 
+        order = 19, 
+        cost = 50, 
+        config = { extra = 10, },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra }}
+        end,
+    }
+)
 SMODS.Joker:take_ownership('credit_card', { order = 20, cost = 10, config = {extra = 200,},})
 
 SMODS.Joker:take_ownership(
@@ -165,7 +175,25 @@ SMODS.Joker:take_ownership(
     }
 )
 
-SMODS.Joker:take_ownership('chaos', {order = 30,cost = 40,config = {extra = 10},}) -- reflect
+SMODS.Joker:take_ownership(
+    'chaos', 
+    {
+        order = 30,
+        cost = 40,
+        config = {
+            extra = 10
+        },
+        loc_vars = function(self, info_queue, card)
+            return {vars = {card.ability.extra}}
+        end,
+        add_to_deck = function(self, card, from_debuff)
+            SMODS.change_free_rerolls(card.ability.extra - 1)
+        end,
+        remove_from_deck = function(self, card, from_debuff)
+            SMODS.change_free_rerolls(-card.ability.extra)
+        end
+    }
+)
 SMODS.Joker:take_ownership('fibonacci', { order = 31, cost = 80, config = { extra = 80 },})
 SMODS.Joker:take_ownership('steel_joker', { order = 32, cost = 70, config = { extra = 2 },})
 SMODS.Joker:take_ownership('scary_face', { order = 33, cost = 40, config = { extra = 300 },})
@@ -221,7 +249,7 @@ SMODS.Joker:take_ownership ('reserved_parking', { order = 82, cost = 60, config 
 SMODS.Joker:take_ownership ('mail', { order = 83, cost = 40, config = {extra = 50} })
 SMODS.Joker:take_ownership ('to_the_moon', {order = 84, cost = 50, config = {extra = 10}})
 SMODS.Joker:take_ownership ('hallucination', { order = 85, cost = 40, config = {extra = 10}})
-SMODS.Joker:take_ownership ('fortune_teller', { order = 86, cost = 60, config = { extra = 10 },})
+SMODS.Joker:take_ownership ('fortune_teller', { order = 86, cost = 60, config = { extra = 10 },}) -- reflect
 SMODS.Joker:take_ownership ('juggler', { order = 87, cost = 40, config = { h_size = 10 },})
 SMODS.Joker:take_ownership ('drunkard', { order = 88, cost = 40, config = { d_size = 10 },})
 SMODS.Joker:take_ownership ('stone', { order = 89, cost = 60, config = {extra = 250}})

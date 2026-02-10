@@ -1,17 +1,19 @@
 SMODS.Stake:take_ownership('white', {})
-SMODS.Stake:take_ownership(
-    'red', 
-    {
-        applied_stakes = { "white" },
-        modifiers = function()
-            G.GAME.modifiers.no_blind_reward = G.GAME.modifiers.no_blind_reward or {}
-            G.GAME.modifiers.no_blind_reward.Small = true
-        end,
-        colour = G.C.RED,
-    }
-)
+SMODS.Stake:take_ownership('red', {})
 
-SMODS.Stake {
+-- SMODS.Stake:take_ownership(
+--     'red', 
+--     {
+--         applied_stakes = { "white" },
+--         modifiers = function()
+--             G.GAME.modifiers.no_blind_reward = G.GAME.modifiers.no_blind_reward or {}
+--             G.GAME.modifiers.no_blind_reward.Small = true
+--         end,
+--         colour = G.C.RED,
+--     }
+-- )
+
+SMODS.Stake:take_ownership(
     name = "Green Stake",
     key = "green",
     unlocked_stake = "black",
@@ -22,7 +24,7 @@ SMODS.Stake {
         G.GAME.modifiers.scaling = (G.GAME.modifiers.scaling or 1) + 1
     end,
     colour = G.C.GREEN,
-}
+)
 
 SMODS.Stake {
     name = "Black Stake",
