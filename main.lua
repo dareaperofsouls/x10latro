@@ -15,6 +15,7 @@ assert(SMODS.load_file("src/tarots.lua"))()
 assert(SMODS.load_file("src/vouchers.lua"))() -- Hone and Tycoons have x10 spawn rate, might have to remove it.
 
 
--- assert(SMODS.load_file("functions/make_everything_10.lua"))() -- Function that makes everything, mods or vanilla, x10 [WIP]
+-- assert(SMODS.load_file("functions/make_everything_10.lua"))() -- Function that makes mods x10 [WIP]
+assert(SMODS.load_file("functions/starting_stats.lua"))()
 -- assert(SMODS.load_file("src/stats.lua"))() -- Money, Hands, Hand Size, Discards are x10
 

@@ -29,7 +29,7 @@ SMODS.Joker:take_ownership(
 
                 for i=1, #G.jokers.cards do
                     if G.jokers.cards[i].ability.name == 'Joker Stencil' then
-                        x_mult = x_mult + 10
+                        x_mult = x_mult * 10
                     end
                 end
 
@@ -51,7 +51,7 @@ SMODS.Joker:take_ownership(
 
                 for i = 1, #G.jokers.cards do
                     if G.jokers.cards[i].ability.name == 'Joker Stencil' then
-                        x_mult = x_mult + 1
+                        x_mult = x_mult * 10
                     end
                 end
 
@@ -300,7 +300,7 @@ SMODS.Joker:take_ownership ('family', {order = 133, cost = 80, config = {Xmult =
 SMODS.Joker:take_ownership ('order', {order = 134, cost = 80, config = {Xmult = 30, type = 'Straight'}})
 SMODS.Joker:take_ownership ('tribe', {order = 135, cost = 80, config = {Xmult = 20, type = 'Flush'}})
 SMODS.Joker:take_ownership('stuntman', {order = 126, cost = 70, config = {extra = {h_size = 2, chip_mod = 2500}}})
-SMODS.Joker:take_ownership ('invisible', { order = 137, cost = 80, config = { extra = 30,}, })
+SMODS.Joker:take_ownership ('invisible', { order = 137, cost = 80, config = { extra = 20,}, })
 SMODS.Joker:take_ownership ('brainstorm', { order = 138, cost = 100, config = {},})
 SMODS.Joker:take_ownership ('satellite', { order = 139, cost = 60, config = { extra = 10 },})
 SMODS.Joker:take_ownership ('shoot_the_moon', { order = 140, cost = 50, config = { extra = 130 },})
