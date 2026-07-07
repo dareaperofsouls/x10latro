@@ -1,6 +1,6 @@
 
 -- The Fool
-SMODS.Consumable:take_ownership('fool', {cost = 30}) 
+SMODS.Consumable:take_ownership('fool', {cost = 3}) 
 SMODS.Consumable:take_ownership('magician', {cost = 30, config = {mod_conv = 'm_lucky', max_highlighted = 20}}) 
 SMODS.Consumable:take_ownership('high_priestess', {cost = 30, config = {planets = 20}}) 
 SMODS.Consumable:take_ownership('empress', {cost = 30, config = {mod_conv = 'm_mult', max_highlighted = 20}}) 

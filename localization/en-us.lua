@@ -10,13 +10,13 @@ return {
                 }
             },
 
-            j_raised_fist = {
-                text = {
-                    "Adds {C:attention}vigintuple{} (20) the rank",
-                    "of {C:attention}lowest{} ranked card",
-                    "held in hand to Mult",
-                },
-            },
+            -- j_raised_fist = {
+            --     text = {
+            --         "Adds {C:attention}twice{} the rank",
+            --         "of {C:attention}lowest{} ranked card",
+            --         "held in hand to Mult",
+            --     },
+            -- },
 
             j_hack = {
                 text = {
@@ -33,8 +33,8 @@ return {
                 text = {
                     "Start run with the",
                     "{C:tarot,T:v_crystal_ball}#1#{} voucher",
-                    "and {C:attention}20{} copies",
-                    "of {C:tarot,T:c_fool}#2#",
+                    "and {C:attention}#2#{} copies",
+                    "of {C:tarot,T:c_fool}#3#",
                 },
             },
         },
@@ -45,20 +45,42 @@ return {
             v_hieroglyph = {text = {"{C:attention}-#1#{} Ante,", "{C:blue}-#2#{} hand", "each round",}},
             v_petroglyph = {text = {"{C:attention}-#1#{} Ante,", "{C:blue}-#2#{} discard", "each round",}},
             v_antimatter = {text = {"{C:dark_edition}+#1#{} Joker Slot",}},
-        }
+            v_crystal_ball = {text = {"{C:attention}+#1#{} consumable slot",},},
+        },
+
+        -- Stake = {
+        --     stake_blue = {
+        --         text = {
+        --             "{C:red}-#1#{} Discard",
+        --             "{s:0.8}Applies all previous Stakes",
+        --         },
+        --     },
+        -- }
     },
     misc = {
         dictionary = {
-            x10_joker_shop_slot = "Enable x10 shop slots",
-            x10_joker_booster_slot = "Enable x10 booster slots",
-            x10_joker_playing_slot = "Enable x10 Joker slots",
+            x_joker_shop_slot = "Multiply shop slots",
+            x_joker_booster_slot = "Multiply booster slots",
+            x_joker_playing_slot = "Multiply Joker slots",
 
-            x10_game_handsize = "Enable x10 hand size",
-            x10_game_perishable = "Enable x10 perishable rounds",
-            x10_game_rental = "Enable x10 rental rate",
+            x_game_handsize = "Multiply hand size",
+            x_game_perishable = "Multiply perishable rounds",
+            x_game_rental = "Multiply rental rate",
 
-            x10_tarot_priestess = "Enable x10 The High Priestess",
-            x10_tarot_emperor = "Enable x10 The Emperor",
+            x_game_playing_hand = "Multiply playing hand",
+            x_game_playing_discard = "Multiply playing discard",
+
+            x_tarot_priestess = "Multiply The High Priestess",
+            x_tarot_emperor = "Multiply The Emperor",
+
+            x_text_game = "Game Settings",
+            x_text_consumables = "Tarot Settings",
+            x_text_slot = "Slot Settings",
+
+            x_ante_scaling = "Multiply Ante Scaling",
+            x_blind_scaling = "Multiply Blind Scaling",
+            x_chance = "Multiply Chance",
+            x_poker_score = "Multiply poker score"
             
         }
     }

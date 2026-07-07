@@ -1,3 +1,5 @@
+
+
 -- Arcana Packs
 SMODS.Booster {
     key = "arcana_normal_1",

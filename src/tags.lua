@@ -1,119 +1,87 @@
--- Uncommon Tag
-SMODS.Tag:take_ownership(
-    'uncommon', {}
-)
+local multiplier = SMODS.current_mod.config.game.multiplier
 
--- Rare Tag
-SMODS.Tag:take_ownership(
-    'rare', {config = {odds = 30}}
-) 
+-- -- Uncommon Tag
+-- SMODS.Tag:take_ownership('uncommon', {})
 
--- Negative Tag
-SMODS.Tag:take_ownership(
-    'negative', {}
-)
+-- -- Rare Tag
+-- SMODS.Tag:take_ownership('rare', {config = {odds = 3 * multiplier}}) 
 
--- Foil Tag
-SMODS.Tag:take_ownership(
-    'foil', {}
-) 
+-- -- Negative Tag
+-- SMODS.Tag:take_ownership('negative', {})
 
--- Holographic Tag
-SMODS.Tag:take_ownership(
-    'holo', {}
-)
+-- -- Foil Tag
+-- SMODS.Tag:take_ownership('foil', {}) 
 
--- Polychrome Tag
-SMODS.Tag:take_ownership(
-    'polychrome', {}
-)
+-- -- Holographic Tag
+-- SMODS.Tag:take_ownership('holo', {})
 
--- Investment Tag
-SMODS.Tag:take_ownership(
-    'investment', {config = {dollars = 250}}
-)
+-- -- Polychrome Tag
+-- SMODS.Tag:take_ownership('polychrome', {})
 
--- Voucher Tag
-SMODS.Tag:take_ownership(
-    'voucher', {}
-)
+-- -- Investment Tag
+-- SMODS.Tag:take_ownership('investment', {config = {dollars = 25 * multiplier}})
 
--- Boss Tag
-SMODS.Tag:take_ownership(
-    'boss', {}
-)
+-- -- Voucher Tag
+-- SMODS.Tag:take_ownership('voucher', {})
 
--- Standard Tag
-SMODS.Tag:take_ownership(
-    'standard', {min_ante = 2}
-)
+-- -- Boss Tag
+-- SMODS.Tag:take_ownership('boss', {})
 
--- Charm Tag
-SMODS.Tag:take_ownership(
-    'charm', {}
-) 
+-- -- Standard Tag
+-- SMODS.Tag:take_ownership('standard', {min_ante = 2})
 
--- Meteor Tag
-SMODS.Tag:take_ownership(
-    'meteor', {min_ante = 2}
-)
+-- -- Charm Tag
+-- SMODS.Tag:take_ownership('charm', {}) 
 
--- Buffoon Tag
-SMODS.Tag:take_ownership(
-    'buffoon', {min_ante = 2}
-)
+-- -- Meteor Tag
+-- SMODS.Tag:take_ownership('meteor', {min_ante = 2})
 
--- Handy Tag
-SMODS.Tag:take_ownership(
-    'handy', {min_ante = 2, config = {dollars_per_hand = 10}}
-)
+-- -- Buffoon Tag
+-- SMODS.Tag:take_ownership(
+--     'buffoon', {min_ante = 2}
+-- )
 
--- Garbage Tag
-SMODS.Tag:take_ownership(
-    'garbage', {min_ante = 2, config = {dollars_per_discard = 10}}
-)
+-- -- Handy Tag
+-- SMODS.Tag:take_ownership(
+--     'handy', {min_ante = 2, config = {dollars_per_hand = 10}}
+-- )
 
--- Ethereal Tag
-SMODS.Tag:take_ownership(
-    'ethereal', {min_ante = 2}
-) 
+-- -- Garbage Tag
+-- SMODS.Tag:take_ownership(
+--     'garbage', {min_ante = 2, config = {dollars_per_discard = 10}}
+-- )
 
--- Coupon Tag
-SMODS.Tag: take_ownership(
-    'coupon', {}
-)
+-- -- Ethereal Tag
+-- SMODS.Tag:take_ownership(
+--     'ethereal', {min_ante = 2}
+-- ) 
 
--- Double Tag
-SMODS.Tag:take_ownership(
-    'double', {}
-)
+-- -- Coupon Tag
+-- SMODS.Tag: take_ownership(
+--     'coupon', {}
+-- )
 
--- Juggle Tag
-SMODS.Tag:take_ownership(
-    'juggle', {config = {h_size = 30}}
-)
+-- -- Double Tag
+-- SMODS.Tag:take_ownership(
+--     'double', {}
+-- )
 
--- D6 Tag
-SMODS.Tag:take_ownership(
-    'd_six', {}
-)
+-- -- Juggle Tag
+-- SMODS.Tag:take_ownership('juggle', {config = {h_size = 3 * multiplier}})
 
--- Top-up Tag
-SMODS.Tag:take_ownership(
-    'top_up', {min_ante = 2, config = {spawn_jokers = 20}}
-)
+-- -- D6 Tag
+-- SMODS.Tag:take_ownership(
+--     'd_six', {}
+-- )
 
--- Speed Tag
-SMODS.Tag:take_ownership(
-    'skip', {config = {skip_bonus = 50}}
-)
+-- -- Top-up Tag
+-- SMODS.Tag:take_ownership('top_up', {min_ante = 2, config = {spawn_jokers = 2 * multiplier}})
 
--- Orbital Tag
-SMODS.Tag:take_ownership(
-    'orbital', {min_ante = 2, config = {levels = 30}}
-)
+-- -- Speed Tag
+-- SMODS.Tag:take_ownership('skip', {config = {skip_bonus = 5 * multiplier}})
 
--- Economy Tag
-SMODS.Tag:take_ownership(
-    'economy', {config = {max = 400}}
-)
+-- -- Orbital Tag
+-- SMODS.Tag:take_ownership('orbital', {min_ante = 2, config = {levels = 3 * multiplier}})
+
+-- -- Economy Tag
+SMODS.Tag:take_ownership('economy', {config = {max = 40 * multiplier}})

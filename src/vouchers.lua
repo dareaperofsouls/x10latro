@@ -1,8 +1,9 @@
+local multiplier = SMODS.current_mod.config.game.multiplier
+
 SMODS.Voucher:take_ownership(
     'overstock_norm', 
     {
-        cost = 100, 
-        config = {extra = 10},
+        config = {extra = 1 * multiplier},
         loc_vars = function(self, info_queue, card)
             return { vars = { card.ability.extra } }
         end,
@@ -21,8 +22,7 @@ SMODS.Voucher:take_ownership(
 SMODS.Voucher:take_ownership(
     'overstock_plus', 
     {
-        cost = 100, 
-        config = {extra = 10},
+        config = {extra = 1 * multiplier},
         loc_vars = function(self, info_queue, card)
             return { vars = { card.ability.extra } }
         end,
@@ -38,22 +38,24 @@ SMODS.Voucher:take_ownership(
     }
 )
 
-SMODS.Voucher:take_ownership('clearance_sale', {cost = 100, config = {extra = 250}})
-SMODS.Voucher:take_ownership('liquidation', {cost = 100, config = {extra = 500}})
+SMODS.Voucher:take_ownership('clearance_sale', {config = {extra = 25 * multiplier}})
+SMODS.Voucher:take_ownership('liquidation', {config = {extra = 50 * multiplier}})
 
-SMODS.Voucher:take_ownership('home', {cost = 100, config = {extra = 20}})
-SMODS.Voucher:take_ownership('glow_up', {cost = 100, config = {extra = 40}})
+SMODS.Voucher:take_ownership('hone', {config = {extra = 2 * multiplier}})
+SMODS.Voucher:take_ownership('glow_up', {config = {extra = 4 * multiplier}})
 
-SMODS.Voucher:take_ownership('reroll_surplus', {cost = 100, config = {extra = 20}})
-SMODS.Voucher:take_ownership('reroll_glut', {cost = 100, config = {extra = 20}})
+SMODS.Voucher:take_ownership('reroll_surplus', {config = {extra = 2 * multiplier}})
+SMODS.Voucher:take_ownership('reroll_glut', {config = {extra = 2 * multiplier}})
 
 SMODS.Voucher:take_ownership(
     'crystal_ball', 
     {
-        cost = 100, 
         config = {
-            extra = 10
+            extra = 1 * multiplier
         },
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra } }
+        end,
         redeem = function(self, card)
             G.E_MANAGER:add_event(Event({
                 func = function()
@@ -64,32 +66,31 @@ SMODS.Voucher:take_ownership(
         end
     }
 )
-SMODS.Voucher:take_ownership('omen_globe', {cost = 100, config = {extra = 40}})
+SMODS.Voucher:take_ownership('omen_globe', {config = {extra = 4 * multiplier}})
 
-SMODS.Voucher:take_ownership('telescope', {cost = 100, config = {extra = 30}})
-SMODS.Voucher:take_ownership('observatory', {cost = 100, config = {extra = 15}})
+SMODS.Voucher:take_ownership('telescope', {config = {extra = 3 * multiplier}})
+SMODS.Voucher:take_ownership('observatory', {config = {extra = 1.5 * multiplier}})
 
-SMODS.Voucher:take_ownership('grabber', {cost = 100, config = {extra = 10}})
-SMODS.Voucher:take_ownership('nacho_tong', {cost = 100, config = {extra = 10}})
+SMODS.Voucher:take_ownership('grabber', {config = {extra = 1 * multiplier}})
+SMODS.Voucher:take_ownership('nacho_tong', {config = {extra = 1 * multiplier}})
 
-SMODS.Voucher:take_ownership('wasteful', {cost = 100, config = {extra = 10}})
-SMODS.Voucher:take_ownership('recyclomancy', {cost = 100, config = {extra = 10}})
+SMODS.Voucher:take_ownership('wasteful', {config = {extra = 1 * multiplier}})
+SMODS.Voucher:take_ownership('recyclomancy', {config = {extra = 1 * multiplier}})
 
-SMODS.Voucher:take_ownership('tarot_merchant', {cost = 100, config = {extra = 96/40, extra_disp = 20}})
-SMODS.Voucher:take_ownership('tarot_tycoon', {cost = 100, config = {extra = 320/40, extra_disp = 40}})
+SMODS.Voucher:take_ownership('tarot_merchant', {config = {extra = (9.6/4 *multiplier), extra_disp = (2 * multiplier)}})
+SMODS.Voucher:take_ownership('tarot_tycoon', {config = {extra = (32/4 * multiplier), extra_disp = (4 * multiplier)}})
 
-SMODS.Voucher:take_ownership('planet_merchant', {cost = 100, config = {extra = 96/40, extra_disp = 20}})
-SMODS.Voucher:take_ownership('planet_tycoon', {cost = 100, config = {extra = 320/40, extra_disp = 40}})
+SMODS.Voucher:take_ownership('planet_merchant', {config = {extra = (9.6/4 *multiplier), extra_disp = (2 * multiplier)}})
+SMODS.Voucher:take_ownership('planet_tycoon', {config = {extra = (32/4 * multiplier), extra_disp = (4 * multiplier)}})
 
-SMODS.Voucher:take_ownership('seed_money', {cost = 100, config = {extra = 500}})
-SMODS.Voucher:take_ownership('money_tree', {cost = 100, config = {extra = 1000}})
+SMODS.Voucher:take_ownership('seed_money', {config = {extra = 50 * multiplier}})
+SMODS.Voucher:take_ownership('money_tree', {config = {extra = 100 * multiplier}})
 
-SMODS.Voucher:take_ownership('blank', {cost = 100, config = {extra = 50}})
+SMODS.Voucher:take_ownership('blank', {config = {extra = 5 * multiplier}})
 SMODS.Voucher:take_ownership(
     'antimatter', 
     {
-        cost = 100, 
-        config = {extra = 10},
+        config = {extra = 1 * multiplier},
         loc_vars = function(self, info_queue, card)
             return { vars = { card.ability.extra } }
         end,
@@ -107,17 +108,16 @@ SMODS.Voucher:take_ownership(
     }
 )
 
-SMODS.Voucher:take_ownership('magic_trick', {cost = 100, config = {extra = 40}})
-SMODS.Voucher:take_ownership('illusion', {cost = 100, config = {extra = 40}})
+SMODS.Voucher:take_ownership('magic_trick', {config = {extra = 4 * multiplier}})
+SMODS.Voucher:take_ownership('illusion', {config = {extra = 4 * multiplier}})
 
 SMODS.Voucher:take_ownership(
     'hieroglyph', 
     {
-        cost = 100, 
         config = {
             extra = {
-                reduce_ante = 10,
-                reduce_hands = 1,
+                reduce_ante = 1 * multiplier,
+                reduce_hands = 1 * multiplier,
             },
         },
         loc_vars = function(self, info_queue, card)
@@ -143,11 +143,10 @@ SMODS.Voucher:take_ownership(
 SMODS.Voucher:take_ownership(
     'petroglyph', 
     {
-        cost = 100, 
         config = {
             extra = {
-                reduce_ante = 10,
-                reduce_discard = 1,
+                reduce_ante = 1 * multiplier,
+                reduce_discard = 1 * multiplier,
             },
         },
         loc_vars = function(self, info_queue, card)
@@ -171,15 +170,14 @@ SMODS.Voucher:take_ownership(
     }
 )
 
-SMODS.Voucher:take_ownership('directors_cut', {cost = 100, config = {extra = 100}})
-SMODS.Voucher:take_ownership('retcon', {cost = 100, config = {extra = 100}})
+SMODS.Voucher:take_ownership('directors_cut', {config = {extra = 10 * multiplier}})
+SMODS.Voucher:take_ownership('retcon', {config = {extra = 10 * multiplier}})
 
 SMODS.Voucher:take_ownership(
     'paint_brush', 
     {
-        cost = 100, 
         config = {
-            extra = 10
+            extra = 1 * multiplier
         },
         loc_vars = function(self, info_queue, card)
             return { vars = { card.ability.extra } }
@@ -193,8 +191,7 @@ SMODS.Voucher:take_ownership(
 SMODS.Voucher:take_ownership(
     'palette', 
     {
-        cost = 100, 
-        config = {extra = 10},
+        config = {extra = 1 * multiplier},
         loc_vars = function(self, info_queue, card)
             return { vars = { card.ability.extra } }
         end,

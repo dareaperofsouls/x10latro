@@ -1,0 +1,18 @@
+{
+    "id": "X_alatro",
+    "name": "X_latro",
+    "display_name": "X_latro",
+    "author": ["ReaperofSouls"],
+    "description": "Every stats are multiplied!",
+    "prefix": "timesX",
+    "main_file": "xalatro.lua",
+    "priority": 0,
+    "badge_colour": "2596be",
+    "badge_text_colour": "ffffff",
+    "version": "1.0.0",
+    "dependencies": [
+        "Steamodded (==1.*~)",
+        "Lovely (>=0.6)"
+    ]
+
+}

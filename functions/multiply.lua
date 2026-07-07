@@ -1,17 +1,23 @@
-local multiplier = 10
-local config = SMODS.current_mod.config
+local multiplier = SMODS.current_mod.config.game.multiplier
+local config = SMODS.current_mod.config.options
 
 local originalparams = get_starting_params
 function get_starting_params()
 	newTable = originalparams()
 
     if config.joker_playing_slot == true then
-        newTable.joker_slots = newTable.joker_slots * 10
+        newTable.joker_slots = newTable.joker_slots * multiplier
     end
 
 	newTable.dollars = newTable.dollars * multiplier
-	newTable.discards = newTable.discards * multiplier
-	newTable.hands = newTable.hands * multiplier
+
+    if config.game_playing_discard == true then
+	    newTable.discards = newTable.discards * multiplier
+    end
+
+    if config.game_playing_hand == true then
+	    newTable.hands = newTable.hands * multiplier
+    end
 
     if config.game_handsize == true then
 	    newTable.hand_size = newTable.hand_size * multiplier
@@ -19,9 +25,13 @@ function get_starting_params()
 
 	newTable.consumable_slots = newTable.consumable_slots * multiplier
 	newTable.reroll_cost = newTable.reroll_cost * multiplier
-	newTable.ante_scaling = newTable.ante_scaling * multiplier
 
-	return newTable
+    if config.ante_scaling == true then
+        newTable.ante_scaling = newTable.ante_scaling * multiplier
+    else
+        newTable.ante_scaling = newTable.ante_scaling * 1
+    end
+    return newTable
 end
 
 local function multiplyNumbers(tbl)
@@ -34,17 +44,17 @@ local function multiplyNumbers(tbl)
     end
 end
 
--- for key, joker in pairs(G.P_CENTERS) do
---     if joker.set == "Joker" then
---         if joker.config then
---             multiplyNumbers(joker.config)
---         end
+for key, joker in pairs(G.P_CENTERS) do
+    if joker.set == "Joker" then
+        -- if joker.config then
+        --     multiplyNumbers(joker.config)
+        -- end
 
---         if joker.cost then
---             joker.cost = joker.cost * multiplier
---         end
---     end
--- end
+        if joker.cost then
+            joker.cost = joker.cost * multiplier
+        end
+    end
+end
 
 -- for key, tags in pairs(G.P_CENTERS) do
 --     if tags.set == "Tag" then
@@ -90,17 +100,17 @@ end
 -- G.P_CENTERS.c_death.config.min_highlighted = 2
 -- G.P_CENTERS.c_death.config.max_highlighted = 2
 
--- for key, vouchers in pairs(G.P_CENTERS) do
---     if vouchers.set == "Voucher" then
---         if vouchers.config then
---             multiplyNumbers(vouchers.config)
---         end
+for key, vouchers in pairs(G.P_CENTERS) do
+    if vouchers.set == "Voucher" then
+        -- if vouchers.config then
+        --     multiplyNumbers(vouchers.config)
+        -- end
 
---         if vouchers.cost then
---             vouchers.cost = vouchers.cost * multiplier
---         end
---     end
--- end
+        if vouchers.cost then
+            vouchers.cost = vouchers.cost * multiplier
+        end
+    end
+end
 
 -- for key, decks in pairs(G.P_CENTERS) do
 --     if decks.set == "Back" then
@@ -118,25 +128,25 @@ for key, editions in pairs(G.P_CENTERS) do
     end
 end
 
-for key, enhance in pairs(G.P_CENTERS) do
-    if enhance.set == "Enhanced" then
-        if enhance.config then
-            multiplyNumbers(enhance.config)
-        end
-    end
-end
-
--- for key, spectral in pairs(G.P_CENTERS) do
---     if spectral.set == "Spectral" then
---         if spectral.config then
---             multiplyNumbers(spectral.config)
---         end
-
---         if spectral.cost then
---             spectral.cost = spectral.cost * multiplier
+-- for key, enhance in pairs(G.P_CENTERS) do
+--     if enhance.set == "Enhanced" then
+--         if enhance.config then
+--             multiplyNumbers(enhance.config)
 --         end
 --     end
 -- end
+
+for key, spectral in pairs(G.P_CENTERS) do
+    if spectral.set == "Spectral" then
+        if spectral.config then
+            multiplyNumbers(spectral.config)
+        end
+
+        if spectral.cost then
+            spectral.cost = spectral.cost * multiplier
+        end
+    end
+end
 
 for key, booster in pairs(G.P_CENTERS) do
     if booster.set == "Booster" then
@@ -157,16 +167,18 @@ local oldinitgameobject = Game.init_game_object
 function Game:init_game_object()
     local g = oldinitgameobject(self)
 
-    for i, hand in pairs(g.hands) do
-        hand.mult = hand.mult * multiplier
-        hand.chips = hand.chips * multiplier
-        hand.s_mult = hand.s_mult * multiplier
-        hand.s_chips = hand.s_chips * multiplier
+    if config.poker_hands ~= false then
+        for i, hand in pairs(g.hands) do
+            hand.mult = hand.mult * multiplier
+            hand.chips = hand.chips * multiplier
+            hand.s_mult = hand.s_mult * multiplier
+            hand.s_chips = hand.s_chips * multiplier
 
-        hand.l_mult = hand.l_mult * multiplier
-        hand.l_chips = hand.l_chips * multiplier
+            hand.l_mult = hand.l_mult * multiplier
+            hand.l_chips = hand.l_chips * multiplier
 
-        print(hand)
+            -- print(hand)
+        end
     end
 
     g.starting_deck_size = g.starting_deck_size * multiplier
