@@ -1,4 +1,4 @@
-# x10latro
+# X_latro
 A funny little project for ONLY vanilla balatro that makes everything have multiplied stats. <br>
 Not all were given multiplied stats, especially those that reduces hands and hand sizes that automatically makes players lose.
 
